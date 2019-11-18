@@ -12,10 +12,34 @@
 		C99A715C238221FC001AA3BD /* libHollowCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A715B238221FC001AA3BD /* libHollowCore.a */; };
 		C99A715E23822211001AA3BD /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A715D23822211001AA3BD /* AppKit.framework */; };
 		C99A71602382225B001AA3BD /* libHollowMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A715F2382225B001AA3BD /* libHollowMac.a */; };
+		C99A718D2382359A001AA3BD /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A718B2382359A001AA3BD /* main.c */; };
+		C99A718E2382362B001AA3BD /* HCVector.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A717C23823509001AA3BD /* HCVector.c */; };
+		C99A718F2382362D001AA3BD /* HCRay.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A717B23823509001AA3BD /* HCRay.c */; };
+		C99A71902382362F001AA3BD /* Trace.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A717A23823509001AA3BD /* Trace.c */; };
+		C99A719923823806001AA3BD /* HCVector.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A716A238226C4001AA3BD /* HCVector.c */; };
+		C99A719A23823809001AA3BD /* HCRay.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A7169238226C4001AA3BD /* HCRay.c */; };
+		C99A719B2382380C001AA3BD /* HCPrimitive.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A71782382293B001AA3BD /* HCPrimitive.c */; };
+		C99A719C2382380F001AA3BD /* HCSphere.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A717323822931001AA3BD /* HCSphere.c */; };
+		C99A719D23823874001AA3BD /* libHollowMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A715F2382225B001AA3BD /* libHollowMac.a */; };
+		C99A719E2382387A001AA3BD /* libHollowCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A715B238221FC001AA3BD /* libHollowCore.a */; };
+		C99A719F23823890001AA3BD /* libHollowTrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7195238237F2001AA3BD /* libHollowTrace.a */; };
+		C99A71A0238238A1001AA3BD /* libHollowTrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7195238237F2001AA3BD /* libHollowTrace.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		C99A718223823546001AA3BD /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		C99A712F23821FD0001AA3BD /* HollowTrace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HollowTrace.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99A712F23821FD0001AA3BD /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99A713A23821FD3001AA3BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99A713D23821FD3001AA3BD /* HollowTrace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HollowTrace.entitlements; sourceTree = "<group>"; };
 		C99A71442382212E001AA3BD /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -23,6 +47,24 @@
 		C99A715B238221FC001AA3BD /* libHollowCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libHollowCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99A715D23822211001AA3BD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		C99A715F2382225B001AA3BD /* libHollowMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libHollowMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99A7169238226C4001AA3BD /* HCRay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCRay.c; sourceTree = "<group>"; };
+		C99A716A238226C4001AA3BD /* HCVector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCVector.c; sourceTree = "<group>"; };
+		C99A716B238226C4001AA3BD /* HCRay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCRay.h; sourceTree = "<group>"; };
+		C99A716C238226C4001AA3BD /* HCVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCVector.h; sourceTree = "<group>"; };
+		C99A717123822868001AA3BD /* HollowTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HollowTrace.h; sourceTree = "<group>"; };
+		C99A717223822931001AA3BD /* HCSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSphere.h; sourceTree = "<group>"; };
+		C99A717323822931001AA3BD /* HCSphere.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCSphere.c; sourceTree = "<group>"; };
+		C99A717423822931001AA3BD /* HCSphere_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSphere_Internal.h; sourceTree = "<group>"; };
+		C99A71762382293B001AA3BD /* HCPrimitive_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPrimitive_Internal.h; sourceTree = "<group>"; };
+		C99A71772382293B001AA3BD /* HCPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPrimitive.h; sourceTree = "<group>"; };
+		C99A71782382293B001AA3BD /* HCPrimitive.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCPrimitive.c; sourceTree = "<group>"; };
+		C99A717A23823509001AA3BD /* Trace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Trace.c; sourceTree = "<group>"; };
+		C99A717B23823509001AA3BD /* HCRay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCRay.c; sourceTree = "<group>"; };
+		C99A717C23823509001AA3BD /* HCVector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCVector.c; sourceTree = "<group>"; };
+		C99A718423823546001AA3BD /* Test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Test; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99A718B2382359A001AA3BD /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		C99A718C2382359A001AA3BD /* ctest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctest.h; sourceTree = "<group>"; };
+		C99A7195238237F2001AA3BD /* libHollowTrace.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHollowTrace.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,8 +73,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				C99A715E23822211001AA3BD /* AppKit.framework in Frameworks */,
+				C99A71A0238238A1001AA3BD /* libHollowTrace.a in Frameworks */,
 				C99A71602382225B001AA3BD /* libHollowMac.a in Frameworks */,
 				C99A715C238221FC001AA3BD /* libHollowCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C99A718123823546001AA3BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C99A719F23823890001AA3BD /* libHollowTrace.a in Frameworks */,
+				C99A719D23823874001AA3BD /* libHollowMac.a in Frameworks */,
+				C99A719E2382387A001AA3BD /* libHollowCore.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C99A7193238237F2001AA3BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +106,8 @@
 				C99A713A23821FD3001AA3BD /* Info.plist */,
 				C99A713D23821FD3001AA3BD /* HollowTrace.entitlements */,
 				C99A714823822156001AA3BD /* Source */,
+				C99A716F2382274C001AA3BD /* Test */,
+				C99A717023822846001AA3BD /* App */,
 				C99A713023821FD0001AA3BD /* Products */,
 				C99A7159238221F8001AA3BD /* Frameworks */,
 			);
@@ -54,7 +116,9 @@
 		C99A713023821FD0001AA3BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C99A712F23821FD0001AA3BD /* HollowTrace.app */,
+				C99A712F23821FD0001AA3BD /* App.app */,
+				C99A718423823546001AA3BD /* Test */,
+				C99A7195238237F2001AA3BD /* libHollowTrace.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -62,7 +126,17 @@
 		C99A714823822156001AA3BD /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C99A714923822156001AA3BD /* main.c */,
+				C99A716C238226C4001AA3BD /* HCVector.h */,
+				C99A716A238226C4001AA3BD /* HCVector.c */,
+				C99A716B238226C4001AA3BD /* HCRay.h */,
+				C99A7169238226C4001AA3BD /* HCRay.c */,
+				C99A71772382293B001AA3BD /* HCPrimitive.h */,
+				C99A71762382293B001AA3BD /* HCPrimitive_Internal.h */,
+				C99A71782382293B001AA3BD /* HCPrimitive.c */,
+				C99A717223822931001AA3BD /* HCSphere.h */,
+				C99A717423822931001AA3BD /* HCSphere_Internal.h */,
+				C99A717323822931001AA3BD /* HCSphere.c */,
+				C99A717123822868001AA3BD /* HollowTrace.h */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -77,12 +151,42 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C99A716F2382274C001AA3BD /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C99A718B2382359A001AA3BD /* main.c */,
+				C99A718C2382359A001AA3BD /* ctest.h */,
+				C99A717C23823509001AA3BD /* HCVector.c */,
+				C99A717B23823509001AA3BD /* HCRay.c */,
+				C99A717A23823509001AA3BD /* Trace.c */,
+			);
+			path = Test;
+			sourceTree = "<group>";
+		};
+		C99A717023822846001AA3BD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C99A714923822156001AA3BD /* main.c */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		C99A7191238237F2001AA3BD /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		C99A712E23821FD0001AA3BD /* HollowTrace */ = {
+		C99A712E23821FD0001AA3BD /* App */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C99A714023821FD3001AA3BD /* Build configuration list for PBXNativeTarget "HollowTrace" */;
+			buildConfigurationList = C99A714023821FD3001AA3BD /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
 				C99A712B23821FD0001AA3BD /* Sources */,
 				C99A712C23821FD0001AA3BD /* Frameworks */,
@@ -92,10 +196,44 @@
 			);
 			dependencies = (
 			);
+			name = App;
+			productName = HollowTrace;
+			productReference = C99A712F23821FD0001AA3BD /* App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C99A718323823546001AA3BD /* Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C99A718823823546001AA3BD /* Build configuration list for PBXNativeTarget "Test" */;
+			buildPhases = (
+				C99A718023823546001AA3BD /* Sources */,
+				C99A718123823546001AA3BD /* Frameworks */,
+				C99A718223823546001AA3BD /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Test;
+			productName = Test;
+			productReference = C99A718423823546001AA3BD /* Test */;
+			productType = "com.apple.product-type.tool";
+		};
+		C99A7194238237F2001AA3BD /* HollowTrace */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C99A7196238237F2001AA3BD /* Build configuration list for PBXNativeTarget "HollowTrace" */;
+			buildPhases = (
+				C99A7191238237F2001AA3BD /* Headers */,
+				C99A7192238237F2001AA3BD /* Sources */,
+				C99A7193238237F2001AA3BD /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
 			name = HollowTrace;
 			productName = HollowTrace;
-			productReference = C99A712F23821FD0001AA3BD /* HollowTrace.app */;
-			productType = "com.apple.product-type.application";
+			productReference = C99A7195238237F2001AA3BD /* libHollowTrace.a */;
+			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
 
@@ -107,6 +245,12 @@
 				ORGANIZATIONNAME = CS4530;
 				TargetAttributes = {
 					C99A712E23821FD0001AA3BD = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					C99A718323823546001AA3BD = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					C99A7194238237F2001AA3BD = {
 						CreatedOnToolsVersion = 11.0;
 					};
 				};
@@ -124,7 +268,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C99A712E23821FD0001AA3BD /* HollowTrace */,
+				C99A7194238237F2001AA3BD /* HollowTrace */,
+				C99A718323823546001AA3BD /* Test */,
+				C99A712E23821FD0001AA3BD /* App */,
 			);
 		};
 /* End PBXProject section */
@@ -146,6 +292,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				C99A714A23822156001AA3BD /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C99A718023823546001AA3BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C99A718E2382362B001AA3BD /* HCVector.c in Sources */,
+				C99A718F2382362D001AA3BD /* HCRay.c in Sources */,
+				C99A71902382362F001AA3BD /* Trace.c in Sources */,
+				C99A718D2382359A001AA3BD /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C99A7192238237F2001AA3BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C99A719923823806001AA3BD /* HCVector.c in Sources */,
+				C99A719A23823809001AA3BD /* HCRay.c in Sources */,
+				C99A719B2382380C001AA3BD /* HCPrimitive.c in Sources */,
+				C99A719C2382380F001AA3BD /* HCSphere.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +467,48 @@
 			};
 			name = Release;
 		};
+		C99A718923823546001AA3BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y28T696EX5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C99A718A23823546001AA3BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y28T696EX5;
+				ENABLE_HARDENED_RUNTIME = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C99A7197238237F2001AA3BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y28T696EX5;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		C99A7198238237F2001AA3BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y28T696EX5;
+				EXECUTABLE_PREFIX = lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -311,11 +521,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C99A714023821FD3001AA3BD /* Build configuration list for PBXNativeTarget "HollowTrace" */ = {
+		C99A714023821FD3001AA3BD /* Build configuration list for PBXNativeTarget "App" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C99A714123821FD3001AA3BD /* Debug */,
 				C99A714223821FD3001AA3BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C99A718823823546001AA3BD /* Build configuration list for PBXNativeTarget "Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C99A718923823546001AA3BD /* Debug */,
+				C99A718A23823546001AA3BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C99A7196238237F2001AA3BD /* Build configuration list for PBXNativeTarget "HollowTrace" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C99A7197238237F2001AA3BD /* Debug */,
+				C99A7198238237F2001AA3BD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

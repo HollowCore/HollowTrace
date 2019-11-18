@@ -1,8 +1,8 @@
 cmake_minimum_required (VERSION 3.5)
-project (HollowMac)
+project (HollowTrace)
 
 # Add dependency directories
-add_subdirectory(HollowCore)
+add_subdirectory(HollowMac)
 
 # Configure Environment
 if (COVERAGE)
@@ -28,47 +28,41 @@ if (COVERAGE)
     set(CMAKE_CXX_OUTPUT_EXTENSION_REPLACE ON)
 endif ()
 
-# HollowMac Library
-set(HOLLOWMAC_LIBRARY_NAME hollowmac)
-set(SOURCES ${SOURCES} Source/UI/HCApplication.c)
-set(SOURCES ${SOURCES} Source/UI/HCMenu.c)
-set(SOURCES ${SOURCES} Source/UI/HCWindow.c)
-set(SOURCES ${SOURCES} Source/UI/HCView.c)
-set(SOURCES ${SOURCES} Source/UI/HCButton.c)
-set(SOURCES ${SOURCES} Source/UI/HCRasterView.c)
-add_library(${HOLLOWMAC_LIBRARY_NAME} ${SOURCES})
+# HollowTrace Library
+set(HOLLOWTRACE_LIBRARY_NAME hollowtrace)
+set(SOURCES ${SOURCES} Source/HCVector.c)
+set(SOURCES ${SOURCES} Source/HCRay.c)
+set(SOURCES ${SOURCES} Source/HCPrimitive.c)
+set(SOURCES ${SOURCES} Source/HCSphere.c)
+add_library(${HOLLOWTRACE_LIBRARY_NAME} ${SOURCES})
 
-# HollowMac Links
-target_link_libraries(${HOLLOWMAC_LIBRARY_NAME} m pthread "-framework AppKit")
-add_dependencies(${HOLLOWMAC_LIBRARY_NAME} hollowcore)
-target_link_libraries(${HOLLOWMAC_LIBRARY_NAME} hollowcore)
+# HollowTrace Links
+add_dependencies(${HOLLOWTRACE_LIBRARY_NAME} hollowcore)
+target_link_libraries(${HOLLOWTRACE_LIBRARY_NAME} hollowcore)
 
-# HollowMac Test Suite
-set(HOLLOWMAC_TEST_NAME hollowmactest)
+# HollowTrace Test Suite
+set(HOLLOWTRACE_TEST_NAME hollowtracetest)
 set(TEST_SOURCES ${TEST_SOURCES} Test/main.c)
-set(TEST_SOURCES ${TEST_SOURCES} Test/HCApplication.c)
-set(TEST_SOURCES ${TEST_SOURCES} Test/HCMenu.c)
-set(TEST_SOURCES ${TEST_SOURCES} Test/HCWindow.c)
-set(TEST_SOURCES ${TEST_SOURCES} Test/HCView.c)
-set(TEST_SOURCES ${TEST_SOURCES} Test/HCButton.c)
-set(TEST_SOURCES ${TEST_SOURCES} Test/HCRasterView.c)
-add_executable(${HOLLOWMAC_TEST_NAME} ${TEST_SOURCES})
-add_dependencies(${HOLLOWMAC_TEST_NAME} hollowcore)
-target_link_libraries(${HOLLOWMAC_TEST_NAME} hollowmac)
+set(TEST_SOURCES ${TEST_SOURCES} Test/HCVector.c)
+set(TEST_SOURCES ${TEST_SOURCES} Test/HCRay.c)
+set(TEST_SOURCES ${TEST_SOURCES} Test/Trace.c)
+add_executable(${HOLLOWTRACE_TEST_NAME} ${TEST_SOURCES})
+add_dependencies(${HOLLOWTRACE_TEST_NAME} hollowcore)
+target_link_libraries(${HOLLOWTRACE_TEST_NAME} hollowtrace)
 enable_testing()
-add_test(tests ${HOLLOWMAC_TEST_NAME})
+add_test(tests ${HOLLOWTRACE_TEST_NAME})
 
-# HollowMac Test Suite Code Coverage
+# HollowTrace Test Suite Code Coverage
 if (COVERAGE)
-    set(HOLLOWMAC_COVERAGE hollowmaccoverage)
-    set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/${HOLLOWMAC_LIBRARY_NAME}.dir/Source)
-    add_custom_target(${HOLLOWMAC_COVERAGE}
-        COMMAND mkdir -p ${HOLLOWMAC_COVERAGE}
+    set(HOLLOWTRACE_COVERAGE hollowtracecoverage)
+    set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/${HOLLOWTRACE_LIBRARY_NAME}.dir/Source)
+    add_custom_target(${HOLLOWTRACE_COVERAGE}
+        COMMAND mkdir -p ${HOLLOWTRACE_COVERAGE}
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     )
-    add_custom_command(TARGET ${HOLLOWMAC_COVERAGE}
+    add_custom_command(TARGET ${HOLLOWTRACE_COVERAGE}
         COMMAND echo "-- LCOV running tests..."
-        COMMAND ${CMAKE_BINARY_DIR}/${HOLLOWMAC_TEST_NAME}
+        COMMAND ${CMAKE_BINARY_DIR}/${HOLLOWTRACE_TEST_NAME}
         COMMAND echo "-- LCOV tests complete"
         COMMAND echo "-- LCOV generating coverage..."
         COMMAND ${LCOV_PATH} --gcov-tool ${GCOV_PATH} -d ${OBJECT_DIR} -c -o coverage.info
@@ -78,21 +72,21 @@ if (COVERAGE)
         COMMAND echo "-- GCOV analysis"
         COMMAND ${GCOV_PATH} ${SOURCES} -o ${OBJECT_DIR} > summary.txt
         COMMAND cat summary.txt
-        COMMAND echo "-- Coverage files have been output to ${CMAKE_BINARY_DIR}/${HOLLOWMAC_COVERAGE}"
-        COMMAND open ${CMAKE_BINARY_DIR}/${HOLLOWMAC_COVERAGE}/html/index.html
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/${HOLLOWMAC_COVERAGE}
+        COMMAND echo "-- Coverage files have been output to ${CMAKE_BINARY_DIR}/${HOLLOWTRACE_COVERAGE}"
+        COMMAND open ${CMAKE_BINARY_DIR}/${HOLLOWTRACE_COVERAGE}/html/index.html
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/${HOLLOWTRACE_COVERAGE}
     )
-    add_custom_target(cumulative_${HOLLOWMAC_COVERAGE}
-        COMMAND mkdir -p ${HOLLOWMAC_COVERAGE}
+    add_custom_target(cumulative_${HOLLOWTRACE_COVERAGE}
+        COMMAND mkdir -p ${HOLLOWTRACE_COVERAGE}
         WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
     )
-    add_custom_command(TARGET cumulative_${HOLLOWMAC_COVERAGE}
+    add_custom_command(TARGET cumulative_${HOLLOWTRACE_COVERAGE}
         COMMAND echo "-- LCOV establishing baseline..."
         COMMAND ${LCOV_PATH} --gcov-tool ${GCOV_PATH} -d ${OBJECT_DIR} -z
         COMMAND ${LCOV_PATH} --gcov-tool ${GCOV_PATH} -d ${OBJECT_DIR} -c -i -o coverage.base
         COMMAND echo "-- LCOV baseline established"
         COMMAND echo "-- LCOV running tests..."
-        COMMAND ${CMAKE_BINARY_DIR}/${HOLLOWMAC_TEST_NAME}
+        COMMAND ${CMAKE_BINARY_DIR}/${HOLLOWTRACE_TEST_NAME}
         COMMAND echo "-- LCOV tests complete"
         COMMAND echo "-- LCOV generating coverage..."
         COMMAND ${LCOV_PATH} --gcov-tool ${GCOV_PATH} -d ${OBJECT_DIR} -c -o coverage.info
@@ -102,17 +96,21 @@ if (COVERAGE)
         COMMAND echo "-- GCOV analysis"
         COMMAND ${GCOV_PATH} ${SOURCES} -o ${OBJECT_DIR} > summary.txt
         COMMAND cat summary.txt
-        COMMAND echo "-- Coverage files have been output to ${CMAKE_BINARY_DIR}/${HOLLOWMAC_COVERAGE}"
-        COMMAND open ${CMAKE_BINARY_DIR}/${HOLLOWMAC_COVERAGE}/html/index.html
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/${HOLLOWMAC_COVERAGE}
+        COMMAND echo "-- Coverage files have been output to ${CMAKE_BINARY_DIR}/${HOLLOWTRACE_COVERAGE}"
+        COMMAND open ${CMAKE_BINARY_DIR}/${HOLLOWTRACE_COVERAGE}/html/index.html
+        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}/${HOLLOWTRACE_COVERAGE}
     )
-    add_dependencies(${HOLLOWMAC_COVERAGE} ${HOLLOWMAC_TEST_NAME})
-    set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES ${HOLLOWMAC_COVERAGE})
+    add_dependencies(${HOLLOWTRACE_COVERAGE} ${HOLLOWTRACE_TEST_NAME})
+    set_property(DIRECTORY APPEND PROPERTY ADDITIONAL_MAKE_CLEAN_FILES ${HOLLOWTRACE_COVERAGE})
 endif ()
 
-# HollowMac Sample App
-set(HOLLOWMAC_APP_NAME controls)
+# HollowTrace Sample App
+set(HOLLOWTRACE_APP_NAME raia)
 set(APP_SOURCES ${APP_SOURCES} App/main.c)
-add_executable(${HOLLOWMAC_APP_NAME} ${APP_SOURCES})
-add_dependencies(${HOLLOWMAC_APP_NAME} hollowcore)
-target_link_libraries(${HOLLOWMAC_APP_NAME} hollowmac)
+add_executable(${HOLLOWTRACE_APP_NAME} ${APP_SOURCES})
+add_dependencies(${HOLLOWTRACE_APP_NAME} hollowcore)
+add_dependencies(${HOLLOWTRACE_APP_NAME} hollowmac)
+target_link_libraries(${HOLLOWTRACE_APP_NAME} hollowcore)
+target_link_libraries(${HOLLOWTRACE_APP_NAME} hollowmac)
+target_link_libraries(${HOLLOWTRACE_APP_NAME} hollowtrace)
+target_link_libraries(${HOLLOWTRACE_APP_NAME} m pthread "-framework AppKit")

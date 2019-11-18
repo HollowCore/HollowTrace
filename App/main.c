@@ -7,6 +7,7 @@
 //
 
 #include "../HollowMac/Source/HollowMac.h"
+#include "../Source/HollowTrace.h"
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Application Callback Prototypes
