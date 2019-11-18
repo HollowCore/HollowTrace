@@ -1,0 +1,3 @@
+[submodule "HollowMac"]
+	path = HollowMac
+	url = https://github.com/HollowCore/HollowMac.git
