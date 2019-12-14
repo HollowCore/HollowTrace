@@ -39,7 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		C99A712F23821FD0001AA3BD /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C99A712F23821FD0001AA3BD /* Tracer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tracer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99A713A23821FD3001AA3BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C99A713D23821FD3001AA3BD /* HollowTrace.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = HollowTrace.entitlements; sourceTree = "<group>"; };
 		C99A71442382212E001AA3BD /* CMakeLists.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		C99A713023821FD0001AA3BD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C99A712F23821FD0001AA3BD /* App.app */,
+				C99A712F23821FD0001AA3BD /* Tracer.app */,
 				C99A718423823546001AA3BD /* Test */,
 				C99A7195238237F2001AA3BD /* libHollowTrace.a */,
 			);
@@ -184,9 +184,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		C99A712E23821FD0001AA3BD /* App */ = {
+		C99A712E23821FD0001AA3BD /* Tracer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C99A714023821FD3001AA3BD /* Build configuration list for PBXNativeTarget "App" */;
+			buildConfigurationList = C99A714023821FD3001AA3BD /* Build configuration list for PBXNativeTarget "Tracer" */;
 			buildPhases = (
 				C99A712B23821FD0001AA3BD /* Sources */,
 				C99A712C23821FD0001AA3BD /* Frameworks */,
@@ -196,9 +196,9 @@
 			);
 			dependencies = (
 			);
-			name = App;
+			name = Tracer;
 			productName = HollowTrace;
-			productReference = C99A712F23821FD0001AA3BD /* App.app */;
+			productReference = C99A712F23821FD0001AA3BD /* Tracer.app */;
 			productType = "com.apple.product-type.application";
 		};
 		C99A718323823546001AA3BD /* Test */ = {
@@ -270,7 +270,7 @@
 			targets = (
 				C99A7194238237F2001AA3BD /* HollowTrace */,
 				C99A718323823546001AA3BD /* Test */,
-				C99A712E23821FD0001AA3BD /* App */,
+				C99A712E23821FD0001AA3BD /* Tracer */,
 			);
 		};
 /* End PBXProject section */
@@ -521,7 +521,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C99A714023821FD3001AA3BD /* Build configuration list for PBXNativeTarget "App" */ = {
+		C99A714023821FD3001AA3BD /* Build configuration list for PBXNativeTarget "Tracer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C99A714123821FD3001AA3BD /* Debug */,
