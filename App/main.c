@@ -23,19 +23,24 @@ void Resize(void* context, HCWindowRef window, HCSize size);
 void Draw(void* context, HCRasterViewRef view, HCRasterRef raster);
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Menu Callback Prototypes
+// MARK: - UI Action Callback Prototypes
 //----------------------------------------------------------------------------------------------------------------------------------
 
 void QuitClicked(void* context, HCMenuRef menu);
 void AboutClicked(void* context, HCMenuRef menu);
 void MinimizeClicked(void* context, HCMenuRef menu);
 void HelpClicked(void* context, HCMenuRef menu);
-void ButtonClicked(void* context, HCButtonRef button);
+void LeftClicked(void* context, HCButtonRef button);
+void RightClicked(void* context, HCButtonRef button);
+void ForwardClicked(void* context, HCButtonRef button);
+void BackwardClicked(void* context, HCButtonRef button);
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Global Data
 //----------------------------------------------------------------------------------------------------------------------------------
+
 HCRasterViewRef g_TraceView = NULL;
+HCVector g_CameraPosition = { .x = 0.0, .y = 0.0, .z = 1.0 };
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Application Entry Point
@@ -87,28 +92,53 @@ void ApplicationReady(void* context, HCApplicationRef application) {
     HCWindowSetResizeCallback(window, Resize, NULL);
     
     g_TraceView = HCRasterViewCreate();
-    HCViewSetFrame((HCViewRef)g_TraceView, HCRectangleMake(HCPointZero, HCWindowSize(window)));
     HCViewSetBackgroundColor((HCViewRef)g_TraceView, HCColorGreen);
     HCRasterViewSetDrawCallback(g_TraceView, Draw, NULL);
     HCViewAddChildView(HCWindowContentView(window), (HCViewRef)g_TraceView);
     
+    HCButtonRef leftButton = HCButtonCreate();
+    HCViewSetFrame((HCViewRef)leftButton, HCRectangleMake(HCPointMake(10.0, 40.0), HCSizeMake(100.0, 30.0)));
+    HCButtonSetTitle(leftButton, HCStringCreateWithCString("<-"));
+    HCButtonSetClickCallback(leftButton, LeftClicked, NULL);
+    HCViewAddChildView((HCViewRef)g_TraceView, (HCViewRef)leftButton);
+    
+    HCButtonRef rightButton = HCButtonCreate();
+    HCViewSetFrame((HCViewRef)rightButton, HCRectangleMake(HCPointMake(110.0, 40.0), HCSizeMake(100.0, 30.0)));
+    HCButtonSetTitle(rightButton, HCStringCreateWithCString("->"));
+    HCButtonSetClickCallback(rightButton, RightClicked, NULL);
+    HCViewAddChildView((HCViewRef)g_TraceView, (HCViewRef)rightButton);
+    
+    HCButtonRef forwardButton = HCButtonCreate();
+    HCViewSetFrame((HCViewRef)forwardButton, HCRectangleMake(HCPointMake(60.0, 10.0), HCSizeMake(100.0, 30.0)));
+    HCButtonSetTitle(forwardButton, HCStringCreateWithCString("^"));
+    HCButtonSetClickCallback(forwardButton, ForwardClicked, NULL);
+    HCViewAddChildView((HCViewRef)g_TraceView, (HCViewRef)forwardButton);
+    
+    HCButtonRef backwardButton = HCButtonCreate();
+    HCViewSetFrame((HCViewRef)backwardButton, HCRectangleMake(HCPointMake(60.0, 70.0), HCSizeMake(100.0, 30.0)));
+    HCButtonSetTitle(backwardButton, HCStringCreateWithCString("v"));
+    HCButtonSetClickCallback(backwardButton, BackwardClicked, NULL);
+    HCViewAddChildView((HCViewRef)g_TraceView, (HCViewRef)backwardButton);
+    
     HCWindowDisplay(window);
+    
+    HCViewSetFrame((HCViewRef)g_TraceView, HCRectangleMake(HCPointZero, HCViewSize(HCWindowContentView(window))));
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Window Callbacks
 //----------------------------------------------------------------------------------------------------------------------------------
 
-void Resize(void* context, HCWindowRef window, HCSize size) {
-    printf("Resize Sent! (%f,%f)\n", size.width, size.height);
-    HCViewSetFrame((HCViewRef)g_TraceView, HCRectangleMake(HCPointZero, size));
+void Resize(void* context, HCWindowRef window, HCSize contentSize) {
+    printf("Resize Sent! (%f,%f)\n", contentSize.width, contentSize.height);
+//    HCViewSetFrame((HCViewRef)g_TraceView, HCRectangleMake(HCPointZero, contentSize));
 }
 
 void Draw(void* context, HCRasterViewRef view, HCRasterRef raster) {
     HCSetRef objects = HCSetCreate();
     HCSetAddObjectReleased(objects, HCSphereCreate(HCVectorMake(0.0, 0.0, 0.0), 0.5));
     
-    HCVector cameraOrigin = HCVectorMake(0.0, 0.0, 1.0);
+    HCVector cameraOrigin = g_CameraPosition;
     HCVector cameraTarget = HCVectorMake(0.0, 0.0, 0.0);
     HCVector cameraUp = HCVectorMake(0.0, 1.0, 0.0);
     
@@ -143,7 +173,7 @@ void Draw(void* context, HCRasterViewRef view, HCRasterRef raster) {
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Menu Callbacks
+// MARK: - UI Action Callbacks
 //----------------------------------------------------------------------------------------------------------------------------------
 
 void QuitClicked(void* context, HCMenuRef menu) {
@@ -157,21 +187,33 @@ void AboutClicked(void* context, HCMenuRef menu) {
 
 void MinimizeClicked(void* context, HCMenuRef menu) {
     printf("Minimize Clicked!\n");
+    HCViewSetFrame((HCViewRef)g_TraceView, HCRectangleInset(HCViewFrame((HCViewRef)g_TraceView), 10.0, 10.0));
 }
 
 void HelpClicked(void* context, HCMenuRef menu) {
     printf("Help Clicked!\n");
 }
 
-void ButtonClicked(void* context, HCButtonRef button) {
-    printf("Button Clicked!\n");
-    HCViewRef parent = HCViewParentViewRetained((HCViewRef)button);
-    HCViewSetFrame(parent, HCRectangleOffset(HCViewFrame(parent), 1.0, 0.0));
-    HCViewSetBackgroundColor(parent, HCColorGreen);
-    HCRelease(parent);
-    
-    HCViewRef a = HCViewParentViewRetained(parent);
-    HCViewRef b = HCViewChildViewAtIndexRetained(a, HCViewChildViewCount(a) - 1);
-    HCViewSetFrame(b, HCRectangleInset(HCViewFrame(b), 1.0, 1.0));
-    HCRelease(a);
+void LeftClicked(void* context, HCButtonRef button) {
+    printf("Left Clicked!\n");
+    g_CameraPosition = HCVectorAdd(g_CameraPosition, HCVectorScale(HCVectorMake(1.0, 0.0, 0.0), 1.0));
+    HCViewDraw((HCViewRef)g_TraceView);
+}
+
+void RightClicked(void* context, HCButtonRef button) {
+    printf("Right Clicked!\n");
+    g_CameraPosition = HCVectorAdd(g_CameraPosition, HCVectorScale(HCVectorMake(0.0, 0.0, 1.0), 1.0));
+    HCViewDraw((HCViewRef)g_TraceView);
+}
+
+void ForwardClicked(void* context, HCButtonRef button) {
+    printf("Forward Clicked!\n");
+    g_CameraPosition = HCVectorAdd(g_CameraPosition, HCVectorScale(HCVectorNormalize(HCVectorSubtract(HCVectorZero, g_CameraPosition)), 1.0));
+    HCViewDraw((HCViewRef)g_TraceView);
+}
+
+void BackwardClicked(void* context, HCButtonRef button) {
+    printf("Backward Clicked!\n");
+    g_CameraPosition = HCVectorAdd(g_CameraPosition, HCVectorScale(HCVectorNormalize(HCVectorSubtract(HCVectorZero, g_CameraPosition)), -1.0));
+    HCViewDraw((HCViewRef)g_TraceView);
 }
