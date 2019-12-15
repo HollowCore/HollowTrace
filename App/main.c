@@ -14,13 +14,23 @@
 //----------------------------------------------------------------------------------------------------------------------------------
 
 void ApplicationReady(void* context, HCApplicationRef application);
+
+//----------------------------------------------------------------------------------------------------------------------------------
+// MARK: - Window Callback Prototypes
+//----------------------------------------------------------------------------------------------------------------------------------
+
+void Resize(void* context, HCWindowRef window, HCSize size);
+void Draw(void* context, HCRasterViewRef view, HCRasterRef raster);
+
+//----------------------------------------------------------------------------------------------------------------------------------
+// MARK: - Menu Callback Prototypes
+//----------------------------------------------------------------------------------------------------------------------------------
+
 void QuitClicked(void* context, HCMenuRef menu);
 void AboutClicked(void* context, HCMenuRef menu);
 void MinimizeClicked(void* context, HCMenuRef menu);
 void HelpClicked(void* context, HCMenuRef menu);
 void ButtonClicked(void* context, HCButtonRef button);
-void Resize(void* context, HCWindowRef window, HCSize size);
-void Draw(void* context, HCRasterViewRef view, HCRasterRef raster);
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Global Data
@@ -74,7 +84,6 @@ void ApplicationReady(void* context, HCApplicationRef application) {
     
     // Setup application window and UI
     HCWindowRef window = HCWindowCreate();
-    HCWindowSetFrame(window, HCRectangleMake(HCPointZero, HCSizeMake(1280.0, 720.0)));
     HCWindowSetResizeCallback(window, Resize, NULL);
     
     g_TraceView = HCRasterViewCreate();
@@ -86,35 +95,9 @@ void ApplicationReady(void* context, HCApplicationRef application) {
     HCWindowDisplay(window);
 }
 
-void QuitClicked(void* context, HCMenuRef menu) {
-    HCApplicationRef application = context;
-    HCApplicationTerminate(application);
-}
-
-void AboutClicked(void* context, HCMenuRef menu) {
-    printf("About Clicked!\n");
-}
-
-void MinimizeClicked(void* context, HCMenuRef menu) {
-    printf("Minimize Clicked!\n");
-}
-
-void HelpClicked(void* context, HCMenuRef menu) {
-    printf("Help Clicked!\n");
-}
-
-void ButtonClicked(void* context, HCButtonRef button) {
-    printf("Button Clicked!\n");
-    HCViewRef parent = HCViewParentViewRetained((HCViewRef)button);
-    HCViewSetFrame(parent, HCRectangleOffset(HCViewFrame(parent), 1.0, 0.0));
-    HCViewSetBackgroundColor(parent, HCColorGreen);
-    HCRelease(parent);
-    
-    HCViewRef a = HCViewParentViewRetained(parent);
-    HCViewRef b = HCViewChildViewAtIndexRetained(a, HCViewChildViewCount(a) - 1);
-    HCViewSetFrame(b, HCRectangleInset(HCViewFrame(b), 1.0, 1.0));
-    HCRelease(a);
-}
+//----------------------------------------------------------------------------------------------------------------------------------
+// MARK: - Window Callbacks
+//----------------------------------------------------------------------------------------------------------------------------------
 
 void Resize(void* context, HCWindowRef window, HCSize size) {
     printf("Resize Sent! (%f,%f)\n", size.width, size.height);
@@ -157,4 +140,38 @@ void Draw(void* context, HCRasterViewRef view, HCRasterRef raster) {
     }
     
     HCRelease(objects);
+}
+
+//----------------------------------------------------------------------------------------------------------------------------------
+// MARK: - Menu Callbacks
+//----------------------------------------------------------------------------------------------------------------------------------
+
+void QuitClicked(void* context, HCMenuRef menu) {
+    HCApplicationRef application = context;
+    HCApplicationTerminate(application);
+}
+
+void AboutClicked(void* context, HCMenuRef menu) {
+    printf("About Clicked!\n");
+}
+
+void MinimizeClicked(void* context, HCMenuRef menu) {
+    printf("Minimize Clicked!\n");
+}
+
+void HelpClicked(void* context, HCMenuRef menu) {
+    printf("Help Clicked!\n");
+}
+
+void ButtonClicked(void* context, HCButtonRef button) {
+    printf("Button Clicked!\n");
+    HCViewRef parent = HCViewParentViewRetained((HCViewRef)button);
+    HCViewSetFrame(parent, HCRectangleOffset(HCViewFrame(parent), 1.0, 0.0));
+    HCViewSetBackgroundColor(parent, HCColorGreen);
+    HCRelease(parent);
+    
+    HCViewRef a = HCViewParentViewRetained(parent);
+    HCViewRef b = HCViewChildViewAtIndexRetained(a, HCViewChildViewCount(a) - 1);
+    HCViewSetFrame(b, HCRectangleInset(HCViewFrame(b), 1.0, 1.0));
+    HCRelease(a);
 }
