@@ -15,7 +15,6 @@ CTEST(Trace, Trace) {
     HCSetRef objects = HCSetCreate();
     HCSetAddObjectReleased(objects, HCSphereCreate(HCVectorMake(0.0, 0.0, 0.0), 0.5));
     HCSetAddObjectReleased(objects, HCSphereCreate(HCVectorMake(0.0, 0.0, 0.0), 0.5)); // Tests equality, should discard
-    HCPrimitiveIntersect(NULL, HCRayInvalid); // Just to call the function for coverage, as no primitives without an intersection are defined yet
     
     fprintf(stdout, "Scene:\n");
     HCPrint(objects, stdout);

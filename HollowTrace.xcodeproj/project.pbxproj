@@ -16,14 +16,34 @@
 		C99A718E2382362B001AA3BD /* HCVector.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A717C23823509001AA3BD /* HCVector.c */; };
 		C99A718F2382362D001AA3BD /* HCRay.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A717B23823509001AA3BD /* HCRay.c */; };
 		C99A71902382362F001AA3BD /* Trace.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A717A23823509001AA3BD /* Trace.c */; };
-		C99A719923823806001AA3BD /* HCVector.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A716A238226C4001AA3BD /* HCVector.c */; };
-		C99A719A23823809001AA3BD /* HCRay.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A7169238226C4001AA3BD /* HCRay.c */; };
-		C99A719B2382380C001AA3BD /* HCPrimitive.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A71782382293B001AA3BD /* HCPrimitive.c */; };
-		C99A719C2382380F001AA3BD /* HCSphere.c in Sources */ = {isa = PBXBuildFile; fileRef = C99A717323822931001AA3BD /* HCSphere.c */; };
 		C99A719D23823874001AA3BD /* libHollowMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A715F2382225B001AA3BD /* libHollowMac.a */; };
 		C99A719E2382387A001AA3BD /* libHollowCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A715B238221FC001AA3BD /* libHollowCore.a */; };
 		C99A719F23823890001AA3BD /* libHollowTrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7195238237F2001AA3BD /* libHollowTrace.a */; };
 		C99A71A0238238A1001AA3BD /* libHollowTrace.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C99A7195238237F2001AA3BD /* libHollowTrace.a */; };
+		C9C7DDF023DA9CED00FC654A /* HCRay.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDD623DA9CED00FC654A /* HCRay.c */; };
+		C9C7DDF123DA9CED00FC654A /* HCTriangle.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDD723DA9CED00FC654A /* HCTriangle.h */; };
+		C9C7DDF223DA9CED00FC654A /* HCVector.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDD823DA9CED00FC654A /* HCVector.h */; };
+		C9C7DDF323DA9CED00FC654A /* HCRay.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDD923DA9CED00FC654A /* HCRay.h */; };
+		C9C7DDF423DA9CED00FC654A /* HCTriangle.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDDA23DA9CED00FC654A /* HCTriangle.c */; };
+		C9C7DDF523DA9CED00FC654A /* HCVector.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDDB23DA9CED00FC654A /* HCVector.c */; };
+		C9C7DDF623DA9CED00FC654A /* HCLight_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDDD23DA9CED00FC654A /* HCLight_Internal.h */; };
+		C9C7DDF723DA9CED00FC654A /* HCPointLight_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDDE23DA9CED00FC654A /* HCPointLight_Internal.h */; };
+		C9C7DDF823DA9CED00FC654A /* HCLight.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDDF23DA9CED00FC654A /* HCLight.h */; };
+		C9C7DDF923DA9CED00FC654A /* HCPointLight.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDE023DA9CED00FC654A /* HCPointLight.c */; };
+		C9C7DDFA23DA9CED00FC654A /* HCLight.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDE123DA9CED00FC654A /* HCLight.c */; };
+		C9C7DDFB23DA9CED00FC654A /* HCPointLight.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDE223DA9CED00FC654A /* HCPointLight.h */; };
+		C9C7DDFC23DA9CED00FC654A /* HCPlane_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDE423DA9CED00FC654A /* HCPlane_Internal.h */; };
+		C9C7DDFD23DA9CED00FC654A /* HCSphere_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDE523DA9CED00FC654A /* HCSphere_Internal.h */; };
+		C9C7DDFE23DA9CED00FC654A /* HCPlane.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDE623DA9CED00FC654A /* HCPlane.h */; };
+		C9C7DDFF23DA9CED00FC654A /* HCMesh.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDE723DA9CED00FC654A /* HCMesh.c */; };
+		C9C7DE0023DA9CED00FC654A /* HCPrimitive.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDE823DA9CED00FC654A /* HCPrimitive.h */; };
+		C9C7DE0123DA9CED00FC654A /* HCSphere.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDE923DA9CED00FC654A /* HCSphere.c */; };
+		C9C7DE0223DA9CED00FC654A /* HCMesh_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDEA23DA9CED00FC654A /* HCMesh_Internal.h */; };
+		C9C7DE0323DA9CED00FC654A /* HCPrimitive_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDEB23DA9CED00FC654A /* HCPrimitive_Internal.h */; };
+		C9C7DE0423DA9CED00FC654A /* HCSphere.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDEC23DA9CED00FC654A /* HCSphere.h */; };
+		C9C7DE0523DA9CED00FC654A /* HCPrimitive.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDED23DA9CED00FC654A /* HCPrimitive.c */; };
+		C9C7DE0623DA9CED00FC654A /* HCMesh.h in Headers */ = {isa = PBXBuildFile; fileRef = C9C7DDEE23DA9CED00FC654A /* HCMesh.h */; };
+		C9C7DE0723DA9CED00FC654A /* HCPlane.c in Sources */ = {isa = PBXBuildFile; fileRef = C9C7DDEF23DA9CED00FC654A /* HCPlane.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -47,17 +67,7 @@
 		C99A715B238221FC001AA3BD /* libHollowCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libHollowCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C99A715D23822211001AA3BD /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		C99A715F2382225B001AA3BD /* libHollowMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libHollowMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		C99A7169238226C4001AA3BD /* HCRay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCRay.c; sourceTree = "<group>"; };
-		C99A716A238226C4001AA3BD /* HCVector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCVector.c; sourceTree = "<group>"; };
-		C99A716B238226C4001AA3BD /* HCRay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCRay.h; sourceTree = "<group>"; };
-		C99A716C238226C4001AA3BD /* HCVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCVector.h; sourceTree = "<group>"; };
 		C99A717123822868001AA3BD /* HollowTrace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HollowTrace.h; sourceTree = "<group>"; };
-		C99A717223822931001AA3BD /* HCSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSphere.h; sourceTree = "<group>"; };
-		C99A717323822931001AA3BD /* HCSphere.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCSphere.c; sourceTree = "<group>"; };
-		C99A717423822931001AA3BD /* HCSphere_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSphere_Internal.h; sourceTree = "<group>"; };
-		C99A71762382293B001AA3BD /* HCPrimitive_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPrimitive_Internal.h; sourceTree = "<group>"; };
-		C99A71772382293B001AA3BD /* HCPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPrimitive.h; sourceTree = "<group>"; };
-		C99A71782382293B001AA3BD /* HCPrimitive.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCPrimitive.c; sourceTree = "<group>"; };
 		C99A717A23823509001AA3BD /* Trace.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Trace.c; sourceTree = "<group>"; };
 		C99A717B23823509001AA3BD /* HCRay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCRay.c; sourceTree = "<group>"; };
 		C99A717C23823509001AA3BD /* HCVector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCVector.c; sourceTree = "<group>"; };
@@ -65,6 +75,30 @@
 		C99A718B2382359A001AA3BD /* main.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		C99A718C2382359A001AA3BD /* ctest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ctest.h; sourceTree = "<group>"; };
 		C99A7195238237F2001AA3BD /* libHollowTrace.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libHollowTrace.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9C7DDD623DA9CED00FC654A /* HCRay.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCRay.c; sourceTree = "<group>"; };
+		C9C7DDD723DA9CED00FC654A /* HCTriangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCTriangle.h; sourceTree = "<group>"; };
+		C9C7DDD823DA9CED00FC654A /* HCVector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCVector.h; sourceTree = "<group>"; };
+		C9C7DDD923DA9CED00FC654A /* HCRay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCRay.h; sourceTree = "<group>"; };
+		C9C7DDDA23DA9CED00FC654A /* HCTriangle.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCTriangle.c; sourceTree = "<group>"; };
+		C9C7DDDB23DA9CED00FC654A /* HCVector.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCVector.c; sourceTree = "<group>"; };
+		C9C7DDDD23DA9CED00FC654A /* HCLight_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLight_Internal.h; sourceTree = "<group>"; };
+		C9C7DDDE23DA9CED00FC654A /* HCPointLight_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPointLight_Internal.h; sourceTree = "<group>"; };
+		C9C7DDDF23DA9CED00FC654A /* HCLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCLight.h; sourceTree = "<group>"; };
+		C9C7DDE023DA9CED00FC654A /* HCPointLight.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCPointLight.c; sourceTree = "<group>"; };
+		C9C7DDE123DA9CED00FC654A /* HCLight.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCLight.c; sourceTree = "<group>"; };
+		C9C7DDE223DA9CED00FC654A /* HCPointLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPointLight.h; sourceTree = "<group>"; };
+		C9C7DDE423DA9CED00FC654A /* HCPlane_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPlane_Internal.h; sourceTree = "<group>"; };
+		C9C7DDE523DA9CED00FC654A /* HCSphere_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSphere_Internal.h; sourceTree = "<group>"; };
+		C9C7DDE623DA9CED00FC654A /* HCPlane.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPlane.h; sourceTree = "<group>"; };
+		C9C7DDE723DA9CED00FC654A /* HCMesh.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCMesh.c; sourceTree = "<group>"; };
+		C9C7DDE823DA9CED00FC654A /* HCPrimitive.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPrimitive.h; sourceTree = "<group>"; };
+		C9C7DDE923DA9CED00FC654A /* HCSphere.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCSphere.c; sourceTree = "<group>"; };
+		C9C7DDEA23DA9CED00FC654A /* HCMesh_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMesh_Internal.h; sourceTree = "<group>"; };
+		C9C7DDEB23DA9CED00FC654A /* HCPrimitive_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCPrimitive_Internal.h; sourceTree = "<group>"; };
+		C9C7DDEC23DA9CED00FC654A /* HCSphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCSphere.h; sourceTree = "<group>"; };
+		C9C7DDED23DA9CED00FC654A /* HCPrimitive.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCPrimitive.c; sourceTree = "<group>"; };
+		C9C7DDEE23DA9CED00FC654A /* HCMesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCMesh.h; sourceTree = "<group>"; };
+		C9C7DDEF23DA9CED00FC654A /* HCPlane.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = HCPlane.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,16 +160,9 @@
 		C99A714823822156001AA3BD /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				C99A716C238226C4001AA3BD /* HCVector.h */,
-				C99A716A238226C4001AA3BD /* HCVector.c */,
-				C99A716B238226C4001AA3BD /* HCRay.h */,
-				C99A7169238226C4001AA3BD /* HCRay.c */,
-				C99A71772382293B001AA3BD /* HCPrimitive.h */,
-				C99A71762382293B001AA3BD /* HCPrimitive_Internal.h */,
-				C99A71782382293B001AA3BD /* HCPrimitive.c */,
-				C99A717223822931001AA3BD /* HCSphere.h */,
-				C99A717423822931001AA3BD /* HCSphere_Internal.h */,
-				C99A717323822931001AA3BD /* HCSphere.c */,
+				C9C7DDD523DA9CED00FC654A /* Data */,
+				C9C7DDE323DA9CED00FC654A /* Primitive */,
+				C9C7DDDC23DA9CED00FC654A /* Light */,
 				C99A717123822868001AA3BD /* HollowTrace.h */,
 			);
 			path = Source;
@@ -171,6 +198,51 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		C9C7DDD523DA9CED00FC654A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				C9C7DDD823DA9CED00FC654A /* HCVector.h */,
+				C9C7DDDB23DA9CED00FC654A /* HCVector.c */,
+				C9C7DDD923DA9CED00FC654A /* HCRay.h */,
+				C9C7DDD623DA9CED00FC654A /* HCRay.c */,
+				C9C7DDD723DA9CED00FC654A /* HCTriangle.h */,
+				C9C7DDDA23DA9CED00FC654A /* HCTriangle.c */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		C9C7DDDC23DA9CED00FC654A /* Light */ = {
+			isa = PBXGroup;
+			children = (
+				C9C7DDDF23DA9CED00FC654A /* HCLight.h */,
+				C9C7DDDD23DA9CED00FC654A /* HCLight_Internal.h */,
+				C9C7DDE123DA9CED00FC654A /* HCLight.c */,
+				C9C7DDE223DA9CED00FC654A /* HCPointLight.h */,
+				C9C7DDDE23DA9CED00FC654A /* HCPointLight_Internal.h */,
+				C9C7DDE023DA9CED00FC654A /* HCPointLight.c */,
+			);
+			path = Light;
+			sourceTree = "<group>";
+		};
+		C9C7DDE323DA9CED00FC654A /* Primitive */ = {
+			isa = PBXGroup;
+			children = (
+				C9C7DDE823DA9CED00FC654A /* HCPrimitive.h */,
+				C9C7DDEB23DA9CED00FC654A /* HCPrimitive_Internal.h */,
+				C9C7DDED23DA9CED00FC654A /* HCPrimitive.c */,
+				C9C7DDEC23DA9CED00FC654A /* HCSphere.h */,
+				C9C7DDE523DA9CED00FC654A /* HCSphere_Internal.h */,
+				C9C7DDE923DA9CED00FC654A /* HCSphere.c */,
+				C9C7DDE623DA9CED00FC654A /* HCPlane.h */,
+				C9C7DDE423DA9CED00FC654A /* HCPlane_Internal.h */,
+				C9C7DDEF23DA9CED00FC654A /* HCPlane.c */,
+				C9C7DDEE23DA9CED00FC654A /* HCMesh.h */,
+				C9C7DDEA23DA9CED00FC654A /* HCMesh_Internal.h */,
+				C9C7DDE723DA9CED00FC654A /* HCMesh.c */,
+			);
+			path = Primitive;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -178,6 +250,21 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9C7DE0423DA9CED00FC654A /* HCSphere.h in Headers */,
+				C9C7DDF323DA9CED00FC654A /* HCRay.h in Headers */,
+				C9C7DDF223DA9CED00FC654A /* HCVector.h in Headers */,
+				C9C7DE0623DA9CED00FC654A /* HCMesh.h in Headers */,
+				C9C7DDFE23DA9CED00FC654A /* HCPlane.h in Headers */,
+				C9C7DDF123DA9CED00FC654A /* HCTriangle.h in Headers */,
+				C9C7DDF723DA9CED00FC654A /* HCPointLight_Internal.h in Headers */,
+				C9C7DDF823DA9CED00FC654A /* HCLight.h in Headers */,
+				C9C7DDFD23DA9CED00FC654A /* HCSphere_Internal.h in Headers */,
+				C9C7DE0223DA9CED00FC654A /* HCMesh_Internal.h in Headers */,
+				C9C7DE0023DA9CED00FC654A /* HCPrimitive.h in Headers */,
+				C9C7DDFB23DA9CED00FC654A /* HCPointLight.h in Headers */,
+				C9C7DDF623DA9CED00FC654A /* HCLight_Internal.h in Headers */,
+				C9C7DE0323DA9CED00FC654A /* HCPrimitive_Internal.h in Headers */,
+				C9C7DDFC23DA9CED00FC654A /* HCPlane_Internal.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -310,10 +397,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C99A719923823806001AA3BD /* HCVector.c in Sources */,
-				C99A719A23823809001AA3BD /* HCRay.c in Sources */,
-				C99A719B2382380C001AA3BD /* HCPrimitive.c in Sources */,
-				C99A719C2382380F001AA3BD /* HCSphere.c in Sources */,
+				C9C7DDF023DA9CED00FC654A /* HCRay.c in Sources */,
+				C9C7DDF523DA9CED00FC654A /* HCVector.c in Sources */,
+				C9C7DE0523DA9CED00FC654A /* HCPrimitive.c in Sources */,
+				C9C7DE0723DA9CED00FC654A /* HCPlane.c in Sources */,
+				C9C7DDFF23DA9CED00FC654A /* HCMesh.c in Sources */,
+				C9C7DDFA23DA9CED00FC654A /* HCLight.c in Sources */,
+				C9C7DDF923DA9CED00FC654A /* HCPointLight.c in Sources */,
+				C9C7DDF423DA9CED00FC654A /* HCTriangle.c in Sources */,
+				C9C7DE0123DA9CED00FC654A /* HCSphere.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

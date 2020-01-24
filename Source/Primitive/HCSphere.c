@@ -15,7 +15,7 @@
 const HCPrimitiveTypeData HCSphereTypeDataInstance = {
     .base = {
         .base = {
-            .ancestor = (HCType)&HCPrimitiveTypeDataInstance,
+            .ancestor = &HCPrimitiveTypeDataInstance.base.base,
             .name = "HCSphere",
         },
         .isEqual = (void*)HCSphereIsEqual,
@@ -23,6 +23,7 @@ const HCPrimitiveTypeData HCSphereTypeDataInstance = {
         .print = (void*)HCSpherePrint,
         .destroy = (void*)HCSphereDestroy,
     },
+    .normalAtPoint = (void*)HCSphereNormalAtPoint,
     .intersect = (void*)HCSphereIntersect,
 };
 HCType HCSphereType = (HCType)&HCSphereTypeDataInstance;
@@ -77,6 +78,10 @@ void HCSpherePrint(HCSphereRef self, FILE* stream) {
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Primitive Polymorphic Functions
 //----------------------------------------------------------------------------------------------------------------------------------
+HCVector HCSphereNormalAtPoint(HCSphereRef self, HCVector point) {
+    return HCVectorSubtract(point, self->center);
+}
+
 HCReal HCSphereIntersect(HCSphereRef self, HCRay ray) {
     HCVector o = HCVectorSubtract(ray.origin, HCSphereCenter(self));
     HCReal a = HCVectorDot(ray.direction, ray.direction);
@@ -100,7 +105,7 @@ HCReal HCSphereIntersect(HCSphereRef self, HCRay ray) {
 //        HCRayAddIntersection(ray, self, rootMax);
         return rootMax;
     }
-    return false;
+    return NAN;
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------

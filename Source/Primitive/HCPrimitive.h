@@ -1,32 +1,41 @@
 //
-//  HCPrimitive_Internal.h
+//  HCPrimitive.h
 //  HollowCore
 //
 //  Created by Matt Stoker on 3/5/19.
 //  Copyright © 2019 HollowCore. All rights reserved.
 //
 
-#ifndef HCPrimitive_Internal_h
-#define HCPrimitive_Internal_h
+#ifndef HCPrimitive_h
+#define HCPrimitive_h
 
-#include "HCPrimitive.h"
-#include "../HollowMac/HollowCore/Source/Core/HCObject_Internal.h"
+#include "../../HollowMac/HollowCore/Source/HollowCore.h"
+#include "../Data/HCRay.h"
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Object Type
 //----------------------------------------------------------------------------------------------------------------------------------
-extern HCPrimitiveTypeData HCPrimitiveTypeDataInstance;
+typedef HCVector (*HCPrimitiveNormalAtPointFunction)(HCRef self, HCVector point);
+typedef HCReal (*HCPrimitiveIntersectFunction)(HCRef self, HCRay ray);
 
-//----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Object Instance Data
-//----------------------------------------------------------------------------------------------------------------------------------
-typedef struct HCPrimitive {
-    HCObject base;
-} HCPrimitive;
+typedef const struct HCPrimitiveTypeData {
+    HCObjectTypeData base;
+    HCPrimitiveNormalAtPointFunction normalAtPoint;
+    HCPrimitiveIntersectFunction intersect;
+} HCPrimitiveTypeData;
+extern HCType HCPrimitiveType;
+
+typedef struct HCPrimitive* HCPrimitiveRef;
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Construction
 //----------------------------------------------------------------------------------------------------------------------------------
-void HCPrimitiveInit(void* memory);
+// NOTE: Instances of HCPrimitive should be created using sub-types
 
-#endif /* HCPrimitive_Internal_h */
+//----------------------------------------------------------------------------------------------------------------------------------
+// MARK: - Primitive Polymorphic Functions
+//----------------------------------------------------------------------------------------------------------------------------------
+HCVector HCPrimitiveNormalAtPoint(HCPrimitiveRef self, HCVector point);
+HCReal HCPrimitiveIntersect(HCPrimitiveRef self, HCRay ray);
+
+#endif /* HCPrimitive_h */

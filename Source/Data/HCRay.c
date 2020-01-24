@@ -60,7 +60,7 @@ HCBoolean HCRayIsZero(HCRay ray) {
 }
 
 HCBoolean HCRayIsInfinite(HCRay ray) {
-    return HCVectorIsInfinite(ray.direction);
+    return HCVectorIsInfinite(ray.origin) || HCVectorIsInfinite(ray.direction);
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------

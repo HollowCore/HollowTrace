@@ -9,7 +9,7 @@
 #ifndef HCVector_h
 #define HCVector_h
 
-#include "../HollowMac/HollowCore/Source/HollowCore.h"
+#include "../../HollowMac/HollowCore/Source/HollowCore.h"
 #include <math.h>
 
 //----------------------------------------------------------------------------------------------------------------------------------
@@ -24,8 +24,8 @@ typedef struct HCVector {
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Special Values
 //----------------------------------------------------------------------------------------------------------------------------------
-#define HCVectorInvalidStatic   {.x = NAN, .y = NAN, .z = NAN}
-#define HCVectorZeroStatic      {.x = 0.0, .y = 0.0, .z = 0.0}
+#define HCVectorInvalidStatic    {.x = NAN, .y = NAN, .z = NAN}
+#define HCVectorZeroStatic       {.x = 0.0, .y = 0.0, .z = 0.0}
 
 static const HCVector HCVectorInvalid = HCVectorInvalidStatic;
 static const HCVector HCVectorZero = HCVectorZeroStatic;

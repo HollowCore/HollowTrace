@@ -1,38 +1,41 @@
 //
-//  HCPrimitive.h
-//  HollowCore
+//  HCLight.h
+//  Test
 //
-//  Created by Matt Stoker on 3/5/19.
+//  Created by Matt Stoker on 3/10/19.
 //  Copyright © 2019 HollowCore. All rights reserved.
 //
 
-#ifndef HCPrimitive_h
-#define HCPrimitive_h
+#ifndef HCLight_h
+#define HCLight_h
 
-#include "../HollowMac/HollowCore/Source/HollowCore.h"
-#include "HCRay.h"
+#include "../../HollowMac/HollowCore/Source/HollowCore.h"
+#include "../Data/HCVector.h"
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Object Type
 //----------------------------------------------------------------------------------------------------------------------------------
-typedef HCBoolean (*HCPrimitiveIntersectFunction)(HCRef self, HCRay ray);
+typedef HCColor (*HCLightColorFunction)(HCRef self);
+typedef HCVector (*HCLightDirectionToPointFunction)(HCRef self, HCVector point);
 
-typedef const struct HCPrimitiveTypeData {
+typedef const struct HCLightTypeData {
     HCObjectTypeData base;
-    HCPrimitiveIntersectFunction intersect;
-} HCPrimitiveTypeData;
-extern HCType HCPrimitiveType;
+    HCLightColorFunction color;
+    HCLightDirectionToPointFunction directionToPoint;
+} HCLightTypeData;
+extern HCType HCLightType;
 
-typedef struct HCPrimitive* HCPrimitiveRef;
+typedef struct HCLight* HCLightRef;
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Construction
 //----------------------------------------------------------------------------------------------------------------------------------
-// NOTE: Instances of HCPrimitive should be created using sub-types
+// NOTE: Instances of HCLight should be created using sub-types
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Primitive Polymorphic Functions
+// MARK: - Light Polymorphic Functions
 //----------------------------------------------------------------------------------------------------------------------------------
-HCReal HCPrimitiveIntersect(HCPrimitiveRef self, HCRay ray);
+HCColor HCLightColor(HCLightRef self);
+HCVector HCLightDirectionToPoint(HCLightRef self, HCVector point);
 
-#endif /* HCPrimitive_h */
+#endif /* HCLight_h */

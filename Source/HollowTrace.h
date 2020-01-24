@@ -9,9 +9,14 @@
 #ifndef HollowTrace_h
 #define HollowTrace_h
 
-#include "HCVector.h"
-#include "HCRay.h"
-#include "HCPrimitive.h"
-#include "HCSphere.h"
+#include "Data/HCVector.h"
+#include "Data/HCRay.h"
+#include "Data/HCTriangle.h"
+#include "Primitive/HCPrimitive.h"
+#include "Primitive/HCSphere.h"
+#include "Primitive/HCPlane.h"
+#include "Primitive/HCMesh.h"
+#include "Light/HCLight.h"
+#include "Light/HCPointLight.h"
 
 #endif /* HollowTrace_h */

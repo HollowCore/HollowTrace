@@ -30,10 +30,15 @@ endif ()
 
 # HollowTrace Library
 set(HOLLOWTRACE_LIBRARY_NAME hollowtrace)
-set(SOURCES ${SOURCES} Source/HCVector.c)
-set(SOURCES ${SOURCES} Source/HCRay.c)
-set(SOURCES ${SOURCES} Source/HCPrimitive.c)
-set(SOURCES ${SOURCES} Source/HCSphere.c)
+set(SOURCES ${SOURCES} Source/Data/HCVector.c)
+set(SOURCES ${SOURCES} Source/Data/HCRay.c)
+set(SOURCES ${SOURCES} Source/Data/HCTriangle.c)
+set(SOURCES ${SOURCES} Source/Light/HCLight.c)
+set(SOURCES ${SOURCES} Source/Light/HCPointLight.c)
+set(SOURCES ${SOURCES} Source/Primitive/HCPrimitive.c)
+set(SOURCES ${SOURCES} Source/Primitive/HCSphere.c)
+set(SOURCES ${SOURCES} Source/Primitive/HCPlane.c)
+set(SOURCES ${SOURCES} Source/Primitive/HCMesh.c)
 add_library(${HOLLOWTRACE_LIBRARY_NAME} ${SOURCES})
 
 # HollowTrace Links

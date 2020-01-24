@@ -1,43 +1,45 @@
 //
-//  HCSphere.h
-//  HollowCore
+//  HCMesh.h
+//  Test
 //
-//  Created by Matt Stoker on 3/5/19.
+//  Created by Matt Stoker on 3/13/19.
 //  Copyright © 2019 HollowCore. All rights reserved.
 //
 
-#ifndef HCSphere_h
-#define HCSphere_h
+#ifndef HCMesh_h
+#define HCMesh_h
 
 #include "HCPrimitive.h"
+#include "../Data/HCTriangle.h"
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Object Type
 //----------------------------------------------------------------------------------------------------------------------------------
-extern HCType HCSphereType;
-typedef struct HCSphere* HCSphereRef;
+extern HCType HCMeshType;
+typedef struct HCMesh* HCMeshRef;
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Construction
 //----------------------------------------------------------------------------------------------------------------------------------
-HCSphereRef HCSphereCreate(HCVector center, HCReal radius);
+HCMeshRef HCMeshCreate(HCVector origin, HCInteger triangleCount, HCTriangle* triangles);
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Object Polymorphic Functions
 //----------------------------------------------------------------------------------------------------------------------------------
-HCBoolean HCSphereIsEqual(HCSphereRef self, HCSphereRef other);
-HCInteger HCSphereHashValue(HCSphereRef self);
-void HCSpherePrint(HCSphereRef self, FILE* stream);
+HCBoolean HCMeshIsEqual(HCMeshRef self, HCMeshRef other);
+HCInteger HCMeshHashValue(HCMeshRef self);
+void HCMeshPrint(HCMeshRef self, FILE* stream);
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Primitive Polymorphic Functions
 //----------------------------------------------------------------------------------------------------------------------------------
-HCReal HCSphereIntersect(HCSphereRef self, HCRay ray);
+HCVector HCMeshNormalAtPoint(HCMeshRef self, HCVector point);
+HCReal HCMeshIntersect(HCMeshRef self, HCRay ray);
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Attributes
 //----------------------------------------------------------------------------------------------------------------------------------
-HCVector HCSphereCenter(HCSphereRef self);
-HCReal HCSphereRadius(HCSphereRef self);
+HCVector HCMeshOrigin(HCMeshRef self);
+HCInteger HCMeshTriangleCount(HCMeshRef self);
 
-#endif /* HCSphere_h */
+#endif /* HCMesh_h */

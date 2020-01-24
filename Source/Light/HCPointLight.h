@@ -1,56 +1,43 @@
 //
-//  HCRay.h
-//  HollowCore
+//  HCPointLight.h
+//  Test
 //
 //  Created by Matt Stoker on 3/10/19.
 //  Copyright © 2019 HollowCore. All rights reserved.
 //
 
-#ifndef HCRay_h
-#define HCRay_h
+#ifndef HCPointLight_h
+#define HCPointLight_h
 
-#include "HCVector.h"
+#include "HCLight.h"
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Object Type
 //----------------------------------------------------------------------------------------------------------------------------------
-typedef struct HCRay {
-    HCVector origin;
-    HCVector direction;
-} HCRay;
+extern HCType HCPointLightType;
+typedef struct HCPointLight* HCPointLightRef;
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Special Values
+// MARK: - Construction
 //----------------------------------------------------------------------------------------------------------------------------------
-#define HCRayInvalidStatic   {.origin = HCVectorInvalidStatic, .direction = HCVectorInvalidStatic}
-#define HCRayZeroStatic      {.origin = HCVectorZeroStatic, .direction = HCVectorZeroStatic}
-
-static const HCRay HCRayInvalid = HCRayInvalidStatic;
-static const HCRay HCRayZero = HCRayZeroStatic;
+HCPointLightRef HCPointLightCreate(HCVector position, HCColor color);
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Constructors
+// MARK: - Object Polymorphic Functions
 //----------------------------------------------------------------------------------------------------------------------------------
-HCRay HCRayMake(HCVector origin, HCVector direction);
+HCBoolean HCPointLightIsEqual(HCPointLightRef self, HCPointLightRef other);
+HCInteger HCPointLightHashValue(HCPointLightRef self);
+void HCPointLightPrint(HCPointLightRef self, FILE* stream);
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Equality
+// MARK: - Primitive Polymorphic Functions
 //----------------------------------------------------------------------------------------------------------------------------------
-HCBoolean HCRayIsInvalid(HCRay ray);
-HCBoolean HCRayIsSimilar(HCRay ray, HCRay other, HCReal axisDissimilarity);
-HCBoolean HCRayIsEqual(HCRay ray, HCRay other);
-HCInteger HCRayHashValue(HCRay ray);
-void HCRayPrint(HCRay ray, FILE* stream);
+HCVector HCPointLightDirectionToPoint(HCPointLightRef self, HCVector point);
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Queries
+// MARK: - Attributes
 //----------------------------------------------------------------------------------------------------------------------------------
-HCBoolean HCRayIsZero(HCRay ray);
-HCBoolean HCRayIsInfinite(HCRay ray);
+HCVector HCPointLightPosition(HCPointLightRef self);
+HCColor HCPointLightColor(HCPointLightRef self);
 
-//----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Operations
-//----------------------------------------------------------------------------------------------------------------------------------
-HCVector HCRayPointAt(HCRay ray, HCReal scale);
-
-#endif /* HCRay_h */
+#endif /* HCPointLight_h */

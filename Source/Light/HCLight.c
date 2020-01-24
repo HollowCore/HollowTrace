@@ -1,44 +1,63 @@
 //
-//  HCPrimitive.c
-//  HollowCore
+//  HCLight.c
+//  Test
 //
-//  Created by Matt Stoker on 3/5/19.
+//  Created by Matt Stoker on 3/10/19.
 //  Copyright © 2019 HollowCore. All rights reserved.
 //
 
-#include "HCPrimitive_Internal.h"
+#include "HCLight_Internal.h"
 #include <math.h>
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Object Type
 //----------------------------------------------------------------------------------------------------------------------------------
-HCPrimitiveTypeData HCPrimitiveTypeDataInstance = {
+HCLightTypeData HCLightTypeDataInstance = {
     .base = {
         .base = {
             .ancestor = NULL,
-            .name = "HCPrimitive",
+            .name = "HCLight",
         },
         .isEqual = (void*)HCObjectIsEqual,
         .hashValue = (void*)HCObjectHashValue,
         .print = (void*)HCObjectPrint,
-        .destroy = (void*)HCObjectDestroy,
-    }
+        .destroy = (void*)HCLightDestroy,
+    },
+    .color = (void*)HCLightColorDefault,
+    .directionToPoint = (void*)HCLightDirectionToPointDefault,
 };
-HCType HCPrimitiveType = &HCPrimitiveTypeDataInstance.base.base;
+HCType HCLightType = &HCLightTypeDataInstance.base.base;
 
 //----------------------------------------------------------------------------------------------------------------------------------
 // MARK: - Construction
 //----------------------------------------------------------------------------------------------------------------------------------
-void HCPrimitiveInit(void* memory) {
+void HCLightInit(void* memory) {
     HCObjectInit(memory);
-    HCPrimitiveRef self = memory;
-    self->base.type = HCPrimitiveType;
+    HCLightRef self = memory;
+    self->base.type = HCLightType;
+}
+
+void HCLightDestroy(HCLightRef self) {
+    (void)self; // Unused
 }
 
 //----------------------------------------------------------------------------------------------------------------------------------
-// MARK: - Primitive Polymorphic Functions
+// MARK: - Light Polymorphic Functions
 //----------------------------------------------------------------------------------------------------------------------------------
-HCReal HCPrimitiveIntersect(HCPrimitiveRef self, HCRay ray) {
-    (void)self; (void)ray; // Unused
-    return NAN;
+HCColor HCLightColor(HCLightRef self) {
+    return ((HCLightTypeData*)self->base.type)->color(self);
+}
+
+HCVector HCLightDirectionToPoint(HCLightRef self, HCVector point) {
+    return ((HCLightTypeData*)self->base.type)->directionToPoint(self, point);
+}
+
+HCColor HCLightColorDefault(HCLightRef self) {
+    (void)self; // Unused
+    return HCColorInvalid;
+}
+
+HCVector HCLightDirectionToPointDefault(HCLightRef self, HCVector point) {
+    (void)self; (void)point; // Unused
+    return HCVectorInvalid;
 }
